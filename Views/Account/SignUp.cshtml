@@ -1,0 +1,151 @@
+﻿@model WebApplication7.Models.ViewModel.UserSignUpView
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Login Form a Responsive Website :: w3layouts</title>
+    <!-- meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Art Sign Up Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates,
+		Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+    <!-- /meta tags -->
+    <!-- custom style sheet -->
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <!-- /custom style sheet -->
+    <!-- fontawesome css -->
+    <link href="~/Content/css/fontawesome-all.css" rel="stylesheet" />
+    <!-- /fontawesome css -->
+    <!-- google fonts-->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- /google fonts-->
+
+</head>
+
+<body>
+
+
+    @{
+        ViewBag.Title = "SignUp";
+    }
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <h3>  </h3>
+        <div class=" w3l-login-form">
+            <h2>Register Here</h2>
+            <form>
+
+                <div class="w3l-form-group">
+                    @Html.LabelFor(model => model.LoginName, htmlAttributes: new
+                    {
+                        @class =
+                   "control-label "
+                    })
+                    <div class="group">
+                        <i class="fas fa-user"></i>
+                        @Html.EditorFor(model => model.LoginName, new
+                        {
+                            htmlAttributes = new
+                            {
+                       @class = "form-control"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.LoginName, "", new
+                        {
+                            @class =
+                       "text-danger"
+                        })
+                    </div>
+                </div>
+
+
+                <div class="w3l-form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label " })
+                    <div class="group">
+                        <i class="fas fa-unlock"></i>
+                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new
+                    {
+                        @class =
+                   "control-label "
+                    })
+                    <div class="group">
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
+                        @Html.EditorFor(model => model.FirstName, new
+                        {
+                            htmlAttributes = new
+                            {
+                       @class = "form-control"
+                            }
+                        })
+
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new
+                        {
+                            @class = "text-danger"
+                       })
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new
+                    {
+                        @class =
+                   "control-label "
+                    })
+                    <div class="group">
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
+
+                        @Html.EditorFor(model => model.LastName, new
+                        {
+                            htmlAttributes = new
+                            {
+                       @class = "form-control"
+                            }
+                        })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new
+                        {
+                            @class =
+                       "text-danger"
+                        })
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    @Html.LabelFor(model => model.Gender, htmlAttributes: new
+                    {
+                        @class =
+                   "control-label "
+                    })
+                    <div class="group">
+                        <i class="fa fa-genderless" aria-hidden="true"></i>
+                        @Html.DropDownListFor(model => model.Gender, new List<SelectListItem> {
+                        new SelectListItem { Text="Male", Value="M" },
+                        new SelectListItem { Text="Female", Value="F" }
+                        }, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+            <p class=" w3l-register-p">Already have an Account?<a href="https://localhost:44396/Account/LogIn" class="register"> Login</a></p>
+
+        </div>
+        <footer>
+            <p class="copyright-agileinfo"> &copy; 2021 RainBow Project. All Rights Reserved | Design by <a href="#">rainbow.com</a></p>
+        </footer>
+    }
+</body>
+
+</html>
